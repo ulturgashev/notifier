@@ -8,3 +8,6 @@ format:
 
 test:
 	pytest
+
+build:
+	docker build -t notifier .
