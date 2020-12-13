@@ -1,6 +1,8 @@
 FROM python:3.7-alpine
 
 RUN apk update && apk upgrade
+# only for tests, need to be removed in the future
+RUN apk add --no-cache --update python3-dev  gcc build-base
 WORKDIR /usr/src/app
 
 COPY requirements.txt ./

@@ -3,6 +3,7 @@
 Simple telegram notifier. Right now it can lose your massage.
 
 ![Python package](https://github.com/ulturgashev/notifier/workflows/Python%20package/badge.svg)
+![Docker Image CI](https://github.com/ulturgashev/notifier/workflows/Docker%20Image%20CI/badge.svg)
 
 ## Formating:
 `make format`
