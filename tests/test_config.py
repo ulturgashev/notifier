@@ -1,4 +1,4 @@
-# import pytest
+import pytest
 
 from pathlib import Path
 from service.config import Config
@@ -19,7 +19,7 @@ def test_creating_from_json():
         assert getattr(config, key) == value
 
 
-# @pytest.mark.skip(reason="Fix it. Problem with github workflow")
+@pytest.mark.skip(reason="Fix it. Problem with github workflow")
 def test_creating_from_file():
     config = Config.from_file(TEST_DATA_DIR / "test_config.json")
     assert getattr(config, "CHAT_ID") == 111111111
