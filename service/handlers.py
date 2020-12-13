@@ -3,7 +3,7 @@ import datetime
 from aiohttp import web
 from http import HTTPStatus
 
-from models import Message, Event
+from service.models import Message, Event
 
 
 class BaseHttpException(Exception):
@@ -46,4 +46,4 @@ async def message(request: web.Request):
         print(f'could not send message: {exc}')
         return web.json_response({'status': 'failed'})
     
-    return web.json_response({'status': 'sended'})
+    return web.json_response({'status': 'sent'})

@@ -4,11 +4,11 @@ import logging
 import os
 
 from aiohttp import web
-from telegram_sender import TelegramSender
+from service.telegram_sender import TelegramSender
 
-from config import Config
-import handlers
-import middleware
+from service.config import Config
+import service.handlers as handlers
+import service.middleware as middleware
 
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
@@ -38,7 +38,7 @@ def app_main(description, create_app):
     loop = asyncio.get_event_loop()
 
     secrets = {'TELEGRAM_TOKEN': os.environ['TELEGRAM_TOKEN']}
-    config = Config.from_json('config.json')
+    config = Config.from_file('config.json')
 
     app = create_app(loop=loop, secrets=secrets, config=config)
     web.run_app(app, host=args.host, port=args.port)

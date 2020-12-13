@@ -1,7 +1,7 @@
 from aiohttp import web
 
-import handlers
-from models import Message
+import service.handlers as handlers
+from service.models import Message
 
 
 async def send_alert(app, exc):

@@ -3,8 +3,8 @@ import logging
 from aiogram import Bot, types
 from aiogram.utils.markdown import text, bold, italic, code, pre
 
-from config import Config
-from models import Message, Event
+from service.config import Config
+from service.models import Message, Event
 
 logger = logging.getLogger(__name__)
 

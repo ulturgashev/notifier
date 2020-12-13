@@ -8,5 +8,6 @@ RUN pip install --upgrade setuptools
 RUN pip install --no-cache-dir -r requirements.txt
 
 ENV LC_ALL=C
+ENV PYTHONPATH=/usr/src/app
 COPY . .
-CMD ["python", "app.py"]
+CMD ["python", "service/app.py"]
