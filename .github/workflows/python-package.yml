@@ -31,7 +31,4 @@ jobs:
         make check
     - name: Test with pytest
       run: |
-        pytest
-    - name: Test with pytest
-      run: |
         make test  
