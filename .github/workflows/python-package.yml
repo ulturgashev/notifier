@@ -29,6 +29,9 @@ jobs:
     - name: Lint with flake8
       run: |
         make check
+    - name: Pwd
+      run: |
+        echo "$(basename $PWD)"
     - name: Test with pytest
       run: |
         make test  
