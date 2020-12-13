@@ -6,8 +6,11 @@ Simple telegram notifier. Right now it can lose your massage.
 `make format`
 
 
-## check flake8:
+## Checks:
 `make format`
+
+## Tests:
+`make test`
 
 ## Build:
 ```docker build -t notifier .```
