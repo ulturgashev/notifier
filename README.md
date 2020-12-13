@@ -2,6 +2,13 @@
 
 Simple telegram notifier. Right now it can lose your massage.
 
+## Formating:
+`make format`
+
+
+## check flake8:
+`make format`
+
 ## Build:
 ```docker build -t notifier .```
 

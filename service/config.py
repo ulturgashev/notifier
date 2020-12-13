@@ -5,7 +5,7 @@ class Config:
     @staticmethod
     def from_file(filename: str):
         data = {}
-        with open(filename, 'r') as input_file:
+        with open(filename, "r") as input_file:
             data = json.load(input_file)
         return Config.from_json(data)
 
