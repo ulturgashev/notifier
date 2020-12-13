@@ -2,6 +2,8 @@
 
 Simple telegram notifier. Right now it can lose your massage.
 
+![Python package](https://github.com/ulturgashev/notifier/workflows/Python%20package/badge.svg)
+
 ## Formating:
 `make format`
 
