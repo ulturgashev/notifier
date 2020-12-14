@@ -1,0 +1,22 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  deploy:
+  
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    - name: Deploy to server
+      uses: easingthemes/ssh-deploy@v2.1.5
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+        REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
+        REMOTE_USER: ${{ secrets.DEPLOY_USER }}
+      script: |
+        docker pull docker.pkg.github.com/ulturgashev/notifier/notifier:latest
