@@ -32,3 +32,16 @@ jobs:
         repository: ulturgashev/notifier/notifier
         tag_with_ref: true
         tags: latest
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploy to server
+      uses: ./
+      with:
+        host: ${{ secrets.DEPLOY_HOST }}
+        username: ${{ secrets.DEPLOY_USER }}
+        key: ${{ secrets.DEPLOY_SSH_KEY }}
+        port: ${{ secrets.DEPLOY_PORT }}
+        script: whoami
