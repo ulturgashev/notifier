@@ -43,10 +43,11 @@ jobs:
       uses: ./
       env:
         TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        CHAT_ID: ${{ secrets.CHAT_ID }}
       with:
         host: ${{ secrets.DEPLOY_HOST }}
         username: ${{ secrets.DEPLOY_USER }}
         key: ${{ secrets.DEPLOY_SSH_KEY }}
         port: ${{ secrets.DEPLOY_PORT }}
-        envs: TELEGRAM_TOKEN
+        envs: TELEGRAM_TOKEN,CHAT_ID
         script: whoami
