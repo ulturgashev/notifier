@@ -37,7 +37,10 @@ def app_main(description, create_app):
     loop = asyncio.get_event_loop()
 
     secrets = {"TELEGRAM_TOKEN": os.environ["TELEGRAM_TOKEN"]}
-    config = Config.from_file("config.json")
+    try:
+        config = Config.from_file("config.json")
+    except Exception:
+        config = Config.from_json({"CHAT_ID": os.environ["CHAT_ID"]})
 
     app = create_app(loop=loop, secrets=secrets, config=config)
     web.run_app(app, host=args.host, port=args.port)
