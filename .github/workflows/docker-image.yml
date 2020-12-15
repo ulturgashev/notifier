@@ -42,12 +42,14 @@ jobs:
     - name: Deploy to server
       uses: appleboy/ssh-action@master
       env:
-        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-        CHAT_ID: ${{ secrets.CHAT_ID }}
+        E_TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        E_CHAT_ID: ${{ secrets.CHAT_ID }}
       with:
         host: ${{ secrets.DEPLOY_HOST }}
         username: ${{ secrets.DEPLOY_USER }}
         key: ${{ secrets.DEPLOY_SSH_KEY }}
         port: ${{ secrets.DEPLOY_PORT }}
-        envs: TELEGRAM_TOKEN,CHAT_ID
-        script: whoami
+        envs: E_TELEGRAM_TOKEN,E_CHAT_ID
+        script: |
+          docker pull docker.pkg.github.com/ulturgashev/notifier/notifier:latest
+          docker run --rm -d -p 8888:8080 --env TELEGRAM_TOKEN=E_TELEGRAM_TOKEN --env CHAT_ID=E_CHAT_ID notifier
