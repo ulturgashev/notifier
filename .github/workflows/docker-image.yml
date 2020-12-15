@@ -52,4 +52,4 @@ jobs:
         envs: E_TELEGRAM_TOKEN,E_CHAT_ID
         script: |
           docker pull docker.pkg.github.com/ulturgashev/notifier/notifier:latest
-          docker run --rm -d -p 8888:8080 --env TELEGRAM_TOKEN=E_TELEGRAM_TOKEN --env CHAT_ID=E_CHAT_ID notifier
+          docker run --rm -d -p 8888:8080 --env TELEGRAM_TOKEN=E_TELEGRAM_TOKEN --env CHAT_ID=E_CHAT_ID docker.pkg.github.com/ulturgashev/notifier/notifier
